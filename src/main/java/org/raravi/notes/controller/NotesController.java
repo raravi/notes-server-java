@@ -2,6 +2,7 @@ package org.raravi.notes.controller;
 
 import java.util.List;
 
+import jakarta.ws.rs.NotFoundException;
 import org.bson.types.ObjectId;
 import org.raravi.notes.controller.dto.NoteDTO;
 import org.raravi.notes.controller.mapper.NoteMapper;
@@ -23,7 +24,10 @@ public class NotesController {
 	NotesService notesService;
 
 	@GET
-	public List<Note> getNotes(@QueryParam("user-id") String userId) {
+	public List<Note> getNotesForUser(@QueryParam("user-id") String userId) throws NotFoundException {
+		if (userId == null || userId.equals("")) {
+			throw new NotFoundException("User not found");
+		}
 		return notesService.getAllNotesForUser(userId);
 	}
 
