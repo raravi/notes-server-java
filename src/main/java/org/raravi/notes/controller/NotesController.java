@@ -2,7 +2,6 @@ package org.raravi.notes.controller;
 
 import java.util.List;
 
-import jakarta.ws.rs.NotFoundException;
 import org.bson.types.ObjectId;
 import org.raravi.notes.controller.dto.NoteDTO;
 import org.raravi.notes.controller.mapper.NoteMapper;
@@ -13,6 +12,7 @@ import io.smallrye.common.constraint.NotNull;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.DELETE;
 import jakarta.ws.rs.GET;
+import jakarta.ws.rs.NotFoundException;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.QueryParam;
