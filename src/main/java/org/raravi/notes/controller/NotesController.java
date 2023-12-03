@@ -25,7 +25,7 @@ public class NotesController {
 
 	@GET
 	public List<Note> getNotesForUser(@QueryParam("user-id") String userId) throws NotFoundException {
-		if (userId == null || userId.equals("")) {
+		if (userId == null || userId.isEmpty()) {
 			throw new NotFoundException("User not found");
 		}
 		return notesService.getAllNotesForUser(userId);
